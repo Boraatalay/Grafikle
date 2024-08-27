@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  
+    <style>
+        .btnn {
+            padding: 1rem 2rem;
+            font-weight: 700;
+            background: rgb(255, 255, 255,0.6);
+            color: rgb(0, 0, 0);
+            border-radius: .5rem;
+            border-bottom: 2px solid blueviolet;
+            border-right: 2px solid blueviolet;
+            border-top: 2px solid rgb(255, 255, 255,0.6);
+            border-left: 2px solid rgb(255, 255, 255,0.6);
+            transition-duration: 1s;
+            transition-property: border-top,
+                border-left,
+                border-bottom,
+                border-right,
+                box-shadow;
+        }
+
+     
+        .btnn:hover {
+    border-top: 2px solid lightgray;
+    border-left: 2px solid lightgray;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    box-shadow: rgba(255, 255, 255, 0.4) 5px 5px, rgba(255, 255, 255, 0.3) 10px 10px, rgba(255, 255, 255, 0.2) 15px 15px;
+}
+
+        Body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {   
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+
+    </style>
+
+</head>
+
+<body style="background-color: rgb(240, 240, 240)">
+
+
+
+
+
+
+
+    <h1 class=" animate__animated  animate__fadeIn Body"
+        style="text-align: center; margin-bottom: 100px; margin-top: 200px; font-family: Tahoma, sans-serif; font-size:150px; color: rgb(255, 255, 255);">
+        Grafikle</h1>
+
+    <ul>
+        <button id="barChart" class="btnn animate__animated animate__pulse "
+            style="margin-left: 20px; margin-right: 20px; width:280px; height: 200px; border-radius: 2rem; font-size: 20px; ">Sütun
+            Grafiği</button>
+        <button id="pieChart" class="btnn animate__animated animate__pulse"
+            style="margin-left: 20px; margin-right: 20px; width:280px; height: 200px; border-radius: 2rem;font-size: 20px; ">Pasta
+            Grafiği</button>
+        <button id="lineChart" class="btnn animate__animated animate__pulse"
+            style="margin-left: 20px; margin-right: 20px; width:280px; height: 200px; border-radius: 2rem;font-size: 20px; ">Çizgi
+            Grafiği</button>
+        <button id="editor" class="btnn animate__animated animate__pulse"
+            style="margin-left: 20px; margin-right: 20px; width:280px; height: 200px; border-radius: 2rem; font-size: 20px;">CSV Editör</button>
+        <button id="yakinda" class="btnn animate__animated animate__pulse"
+            style="margin-left: 20px; margin-right: 20px; width:280px; height: 200px; border-radius: 2rem; font-size: 20px;">Yakında...</button>
+
+    </ul>
+    <script>
+
+
+
+        document.getElementById("barChart").onclick = function () {
+            window.location.href = "html/barChart.html";
+        };
+        document.getElementById("pieChart").onclick = function () {
+            window.location.href = "html/pieChart.html";
+        };
+        document.getElementById("lineChart").onclick = function () {
+            window.location.href = "html/lineChart.html";
+        };
+        document.getElementById("editor").onclick = function () {
+            window.location.href = "html/editor.html";
+        };
+
+    </script>
+
+
+
+</body>
+
+</html>

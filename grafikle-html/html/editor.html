@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"
+        integrity="sha512-dfX5uYVXzyU8+KHqj8bjo7UkOdg18PaOtpa48djpNbZHwExddghZ+ZmzWT06R5v6NSk3ZUfsH6FNEDepLx9hPQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"
+        integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .btn {
+            font-family: monospace;
+            background-color: #3b82f6;
+            color: #f3f7fe;
+            border: none;
+            border-radius: 8px;
+            width: 150px;
+            height: 45px;
+            transition: .3s;
+            margin-right: 6px;
+        }
+
+        .btn:hover {
+            background-color: #3b82f6;
+            box-shadow: 0 0 0 5px #3b83f65f;
+            color: #fff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 20px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td input {
+            width: 100%;
+            border: none;
+            background-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="animate__animated animate__fadeInDown" style="text-align: center; font-family: Tahoma, sans-serif;">CSV
+        Editor</h1>
+    <button style="font-family: Tahoma, sans-serif;font-size: 15px;" id="home"
+        class="btn animate__animated animate__fadeInDownBig"> <i class="fa-solid fa-house"></i>
+        Ev</button>
+    <button id="saveBtn" style=" margin-bottom: 10px;font-family: Tahoma, sans-serif; font-size: 15px;"
+        class="btn animate__animated animate__fadeInDownBig"><i class="fa-solid fa-download "></i> Save CSV</button>
+    <p></p>
+    <table class="animate__animated animate__fadeInDown" id="csvTable"></table>
+
+    <script>
+        document.getElementById("home").onclick = function () {
+            window.location.href = "/index.html";
+        };
+        document.getElementById('saveBtn').addEventListener('click', saveCSV, false);
+
+        let csvData = [];
+
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/denemem.csv')  
+                .then(response => response.text())
+                .then(text => {
+                    Papa.parse(text, {
+                        complete: function (results) {
+                            csvData = results.data;
+                            displayCSV(csvData);
+                        }
+                    });
+                });
+        });
+
+        function displayCSV(data) {
+            const table = document.getElementById('csvTable');
+            table.innerHTML = '';
+            data.forEach((row, rowIndex) => {
+                const tr = document.createElement('tr');
+                row.forEach((cell, cellIndex) => {
+                    const td = document.createElement(rowIndex === 0 ? 'th' : 'td');
+                    if (rowIndex !== 0) {
+                        const input = document.createElement('input');
+                        input.value = cell;
+                        input.addEventListener('input', (event) => {
+                            csvData[rowIndex][cellIndex] = event.target.value;
+                        });
+                        td.appendChild(input);
+                    } else {
+                        td.textContent = cell;
+                    }
+                    tr.appendChild(td);
+                });
+                table.appendChild(tr);
+            });
+        }
+
+        function saveCSV() {
+            const csv = Papa.unparse(csvData);
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            saveAs(blob, 'denemem.csv');
+        }
+    </script>
+</body>
+
+</html>
