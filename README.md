@@ -11,17 +11,20 @@ Grafikle is a user-friendly CSV editor that transforms your monthly profit and l
 
 ## 📷 **Screenshots**
 
-- **Sütun Grafiği:** 
+- **Main Page:** 
   ![Bar Chart](/grafikleimg/mainpage.png)
 
-- **Pasta Grafiği:** 
-  ![Pie Chart](path_to_screenshot)
+- **Bar Chart:** 
+  ![Bar Chart](/grafikleimg/barchart.png)
 
-- **Çizgi Grafiği:** 
-  ![Line Chart](path_to_screenshot)
+- **Pie Chart:** 
+  ![Pie Chart](/grafikleimg/piechart.png)
 
-- **CSV Editör:**
-  ![CSV Editor](path_to_screenshot)
+- **Line Chart:** 
+  ![Line Chart](/grafikleimg/linechart.png)
+
+- **CSV Editor:**
+  ![CSV Editor](/grafikleimg/csv.png)
 
 ## 🤖 **Usage**
 
