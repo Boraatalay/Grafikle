@@ -25,10 +25,11 @@ Grafikle is a user-friendly CSV editor that transforms your monthly profit and l
 
 ## 🤖 **Usage**
 
--** CSV Editing: Start by entering your monthly profit and loss data in the CSV editor.
--** Chart Generation: Choose your desired chart type (bar, pie, or line) to visualize your data.
--** Net Annual Profit: View your net annual profit calculated from the monthly inputs.
+- **CSV Editing:** Start by entering your monthly profit and loss data in the CSV editor.
+- **Chart Generation:** Choose your desired chart type (bar, pie, or line) to visualize your data.
+- **Net Annual Profit:** View your net annual profit calculated from the monthly inputs.
 
 ## 🛡️ **Contributing**
 
--**Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
+- **Contributions are welcome!** Please feel free to submit a pull request or open an issue for any suggestions or improvements.
+
